@@ -4,7 +4,10 @@ import numpy as np
 import shutil
 from tqdm import tqdm
 from pathlib import Path
+
+matplotlib.use('Agg')  #解决图形窗口不显示
 import matplotlib.pyplot as plt
+
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 from torch.distributions import Dirichlet, Categorical, LogNormal
@@ -218,7 +221,8 @@ class dataPrep:
         ax.set_xlabel('Class ID', fontsize=13)
         ax.set_ylabel('# samples', fontsize=13)
         plt.tight_layout()
-        plt.show()
+        # plt.show()
+        plt.savefig('filename.png')
 
 
 if __name__ == "__main__":
